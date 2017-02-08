@@ -4,10 +4,6 @@ $(document).ready(function(){
       $(".bar2").toggleClass("mytogclass2");
       $(".bar3").toggleClass("mytogclass3");
   });
-
-
-
-
     $(".overlay1").click(function(){
         $(".modal-container1").slideDown();
     });
@@ -26,14 +22,10 @@ $(document).ready(function(){
     $(".modal-container3").click(function(){
         $(".modal-container3").hide();
     });
-
-
     $(".my-text-2").hide();
     $(".my-text-3").hide();
-
-
     $(".my-btn1").click(function(){
-        $(".my-text-1").slideDown();
+        $(".my-text-1").fadeIn();
         $(".my-text-2").hide();
         $(".my-text-3").hide();
     });
@@ -42,12 +34,10 @@ $(document).ready(function(){
         $(".my-text-2").fadeIn();
         $(".my-text-3").hide();
     });
-
     $(".my-btn3").click(function(){
         $(".my-text-1").hide();
         $(".my-text-2").hide();
-
-        $(".my-text-3").show(500);
+        $(".my-text-3").fadeIn();
     });
     $(function() {
       $('a[href*="#"]:not([href="#myCarousel"])').click(function() {
@@ -63,7 +53,36 @@ $(document).ready(function(){
         }
       });
     });
+    $(function(){
+      $(window).scroll(function(){
+        var scrollval= $(window).scrollTop();
+        if(scrollval>=900){
+          $(".middle-header").fadeIn(900);
+          $(".myscroll1").slideDown(1000);
+        }else{
+          $(".middle-header").fadeOut(900);
+            $(".myscroll1").slideUp(1000);
+        }
+      });
+});
+$(".modal-scroll-container").hide();
+$(function(){
+  var idiot=false;
+  $(window).scroll(function(){
+    var scrollmod= $(window).scrollTop();
+    if(scrollmod>600){
+      if(!idiot){
+            $(".modal-scroll-container").fadeIn();
+            idiot=true;
+      };
+    };
+  });
+});
 
+$(".my-x-icon").click(function(){
+  $(".modal-scroll-container").fadeOut(500);
+  $(".scroll-contact").toggleClass("giveitup");
+});
 
 
 });
